@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/admin-style.css">
+    <script src="../scripts/index.js" defer type="module"></script>
+    <script src="../scripts/mask-phone.js" defer></script>
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div class="container">
+        {{>navLink}}
+        <form action="/submitNewProfile" class="cart-form" method="POST">
+            <label>
+                <select name="category">
+                    <option value="Администрация" selected>Администрация</option>
+                    <option value="Автобусный Парк №2">Автобусный Парк №2</option>
+                    <option value="Автобусный Парк №5">Автобусный Парк №5</option>
+                    <option value="Автобусный Парк №6">Автобусный Парк №6</option>
+                    <option value="Автобусный Парк №7">Автобусный Парк №7</option>
+                    <option value="Транспортный Парк №1">Транспортный Парк №1</option>
+                    <option value="Троллейбусный Парк №2">Троллейбусный Парк №2</option>
+                    <option value="Троллейбусный Парк №3">Троллейбусный Парк №3</option>
+                    <option value="Троллейбусный Парк №4">Троллейбусный Парк №4</option>
+                    <option value="Троллейбусный Парк №5">Троллейбусный Парк №5</option>
+                    <option value="Трамвайный Парк">Трамвайный Парк</option>
+                    <option value="Служба Энергохозяйства">Служба Энергохозяйства</option>
+                    <option value="Агентство">Агентство</option>
+                    <option value="Ремонтно-строительное управление">Ремонтно-строительное управление</option>
+                    <option value="Ремонтно-механический завод">Ремонтно-механический завод</option>
+                    <option value="Волма">Санаторий "Волма"</option>
+                    <option value="СХК Великополье">СХК "Великополье"</option>
+                </select>
+            </label>
+            <label>
+                <input type="text" name="subOtdel" value="{{data.subOtdel}}" placeholder="Управление\Отдел:" class="input-form">
+            </label>
+            <label>
+                <input type="text" name="subOtdelItem" value="{{data.subOtdelItem}}" placeholder="Отдел\сектор" class="input-form">
+            </label>
+            <label>
+                <input type="text" name="userFio" value="{{data.userFio}}" placeholder="ФИО" class="input-form">
+            </label>
+            <label>
+                <input type="text" name="position" value="{{data.position}}" placeholder="Должность" class="input-form">
+            </label>
+            <label>
+                <input type="tel" name="userPhone" class="input-form userPhone" value="{{data.userPhone}}"
+                    placeholder="Гор. тел.">
+            </label>
+            <label>
+                <input type="tel" name="userMobile" value="{{data.userMobile}}" placeholder="Моб." class="input-form">
+            </label>
+            <label>
+                <input type="tel" name="userFax" value="{{data.userFax}}" placeholder="Факс" class="input-form">
+            </label>
+            <label>
+                <input type="email" name="userEmail" value="{{data.userEmail}}" placeholder="Email" class="input-form">
+            </label>
+            <button type="submit" class="cart-checkout">Добавить</button>
+            <span style="color:green">{{succes}}</span>
+        </form>
+    </div>
+</body>
+
+</html>

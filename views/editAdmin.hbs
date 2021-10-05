@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/admin-style.css">
+    <script src="scripts/index.js" defer type="module"></script>
+    <title>{{titleEdit}}</title>
+</head>
+
+<body>
+    {{title}}
+    <div class="container">
+        {{> adminMenu}}
+        <ul class="goods-list">
+            {{#each users}}
+            <li class="goods-list__item">
+                <article class="goods-item goods-list__item__admin">
+                    <p class="goods-item__p">{{this.category}}</p>
+                    <p class="goods-item__p">{{this.subOtdel}}</p>
+                    <p class="goods-item__p">{{this.userFio}}</p>
+                    <p class="goods-item__p">{{this.position}}</p>
+                    <p class="goods-item__p">г. {{this.userPhone}} <span>м. {{this.userMobile}}</span> <span>ф.{{this.userFax}}</span></p>
+                    <p class="goods-item__p">{{this.emailUsers}}</p>
+                    <a href="/editProfile/{{this.id}}" class="btn-edit">Редактировать</a>
+                    <form action="deleteProfile/{{this.id}}" method="POST">
+                        <input type="submit" value="Удалить" class="btn-delete">
+                    </form>
+                </article>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</body>
+
+</html>

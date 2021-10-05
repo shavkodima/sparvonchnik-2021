@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/admin-style.css">
+    <script src="../scripts/bundle.js" type="module" defer></script>
+    <script src="../scripts/admin/admin.js" type="module" defer></script>
+    <title>Добавить нового Администратора</title>
+</head>
+
+<body>
+    <div class="container">
+            {{>navLink}}
+        <div class="content-admin">
+            <div class="content-admin-item">
+                <form action="/submitNewUserAdmin" class="cart-form" method="POST">
+                    <label>
+                        <select name="filial">
+                            <option value="Администрация" selected>Администрация</option>
+                            <option value="Автобусный Парк №2">Автобусный Парк №2</option>
+                            <option value="Автобусный Парк №5">Автобусный Парк №5</option>
+                            <option value="Автобусный Парк №6">Автобусный Парк №6</option>
+                            <option value="Автобусный Парк №7">Автобусный Парк №7</option>
+                            <option value="Транспортный Парк №1">Транспортный Парк №1</option>
+                            <option value="Троллейбусный Парк №2">Троллейбусный Парк №2</option>
+                            <option value="Троллейбусный Парк №3">Троллейбусный Парк №3</option>
+                            <option value="Троллейбусный Парк №4">Троллейбусный Парк №4</option>
+                            <option value="Троллейбусный Парк №5">Троллейбусный Парк №5</option>
+                            <option value="Трамвайный Парк">Трамвайный Парк</option>
+                            <option value="Служба Энергохозяйства">Служба Энергохозяйства</option>
+                            <option value="Агентство">Агентство</option>
+                            <option value="Ремонтно-строительное управление">Ремонтно-строительное управление</option>
+                            <option value="Ремонтно-механический завод">Ремонтно-механический завод</option>
+                            <option value="Волма">Санаторий "Волма"</option>
+                            <option value="СХК Великополье">СХК "Великополье"</option>
+                        </select>
+                    </label>
+                    <label>
+                        <input type="login" name="login" placeholder="Логин" class="input-form">
+                    </label>
+                    <label>
+                        <input type="password" name="password" placeholder="Пароль" class="input-form">
+                    </label>
+                    <label>
+                        <select name="role">
+                            <option value="ADMIN">Администратор</option>
+                            <option value="USER" selected>Пользователь</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="cart-checkout">Добавить</button>
+                    <span style="color:{{color}}">{{messageToUser}}</span>
+                </form>
+            </div>
+            <div class="content-admin-item">
+                <div class="list-user-admin">
+                    <ul class="list-admin">
+                        {{#each listUserAdmin}}
+                        <li class="goods-list__item">
+                            <article class="goods-item goods-list__item__admin__user">
+                                <p class="goods-item__p">{{this.login}}</p>
+                                <p class="goods-item__p">{{this.filial}}</p>
+                                <p class="goods-item__p">{{this.role}}</p>
+                                <a href="#" dataset-id="{{this.id}}" class="btn-edit__password">Редактировать профиль</a>
+                                <form action="deleteAdmin/{{this.id}}" method="POST">
+                                    <input type="submit" value="Удалить" class="btn-delete">
+                                </form>
+                            </article>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
